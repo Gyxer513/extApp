@@ -3,36 +3,35 @@
  * "mainView" property. That setting causes an instance of this class to be created and
  * added to the Viewport container.
  */
-Ext.define('ipgQualificationTask.view.main.Main', {
-    extend: 'Ext.tab.Panel',
-    xtype: 'app-main',
+Ext.define("ipgQualificationTask.view.main.Main", {
+  extend: "Ext.tab.Panel",
+  xtype: "app-main",
 
-    requires: [
-        'Ext.MessageBox',
-        'Ext.layout.Fit'
-    ],
+  requires: ["Ext.MessageBox", "Ext.layout.Fit"],
 
-    controller: 'main',
-    viewModel: 'main',
+  controller: "main",
+  viewModel: "main",
 
-    defaults: {
-        tab: {
-            iconAlign: 'top'
-        }
+  defaults: {
+    tab: {
+      iconAlign: "top",
     },
+  },
 
-    tabBarPosition: 'bottom',
+  tabBarPosition: "bottom",
 
-    items: [
-        // TODO - Replace the content of this view to suit the needs of your application.
+  items: [
+    // TODO - Replace the content of this view to suit the needs of your application.
+    {
+      title: "Home",
+      iconCls: "x-fa fa-home",
+      layout: "fit",
+      // The following grid shares a store with the classic version's grid as well!
+      items: [
         {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        }
-    ]
+          xtype: "mainlist",
+        },
+      ],
+    },
+  ],
 });

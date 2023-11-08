@@ -12,6 +12,8 @@ Ext.define('ipgQualificationTask.store.Personnel', {
         { name: 'Berk',     dateOfBirth: "1985-05-22",        description: "text description", quantity: 100}
     ]},
 
+    
+
     proxy: {
         type: 'memory',
         reader: {

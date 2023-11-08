@@ -1,38 +1,40 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('ipgQualificationTask.view.main.List', {
-    extend: 'Ext.grid.Grid',
-    xtype: 'mainlist',
+Ext.define("ipgQualificationTask.view.main.List", {
+  extend: "Ext.grid.Grid",
+  xtype: "mainlist",
 
-    requires: [
-        'ipgQualificationTask.store.Personnel'
-    ],
+  requires: ["ipgQualificationTask.store.Personnel"],
 
-    title: 'Personnel',
+  title: "Personnel",
 
-    store: {
-        type: 'personnel'
+  store: {
+    type: "personnel",
+  },
+
+  columns: [
+    {
+      text: "Name",
+      dataIndex: "name",
+      width: 230,
+      cell: {
+        userCls: "bold",
+      },
     },
+    {
+      text: "Email",
+      dataIndex: "email",
+      width: 230,
+    },
+    {
+      text: "Phone",
+      dataIndex: "phone",
+      width: 150,
+    },
+  ],
 
-    columns: [{ 
-        text: 'Name',
-        dataIndex: 'name',
-        width: 230,
-        cell: {
-            userCls: 'bold'
-        }
-    }, {
-        text: 'Email',
-        dataIndex: 'email',
-        width: 230 
-    }, { 
-        text: 'Phone',
-        dataIndex: 'phone',
-        width: 150 
-    }],
-
-    listeners: {
-        select: 'onItemSelected'
-    }
+  listeners: {
+   
+  },
 });

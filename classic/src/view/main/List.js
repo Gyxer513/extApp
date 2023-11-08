@@ -14,19 +14,34 @@ Ext.define("ipgQualificationTask.view.main.List", {
   selModel: {
     type: "cellmodel",
   },
-  plugins: {
-    cellediting: {
-      clicksToEdit: 1,
+
+  tbar: [
+    {
+      text: "Добавить строку",
+      handler: "onAddClick",
     },
-  },
+    {
+      text: "Удалить строку",
+      handler: "onRemoveClick",
+      reference: 'removeEmployee',
+      handler: '',
+      disabled: true
+    },
+    {
+      text: "Клонировать строку",
+      handler: "onCloneClick",
+      reference: 'removeEmployee',
+      handler: 'onRemoveClick',
+      disabled: true
+    },
+  ],
 
   store: {
     type: "personnel",
   },
   plugins: {
-    rowediting: {
-      clicksToMoveEditor: 1,
-      autoCancel: false,
+    cellediting: {
+      clicksToEdit: 2,
     },
   },
   columns: [
@@ -83,26 +98,13 @@ Ext.define("ipgQualificationTask.view.main.List", {
         maxValue: 150000,
       },
     },
-    {
-      xtype: "actioncolumn",
-      text: "Active Column",
-      width: 300,
-      menuDisabled: true,
-      sortable: false,
-      items: [
-        {
-          iconCls: "x-fa fa-check green icon-margin",
-          handler: "onAddClick",
-        },
-        {
-          iconCls: "x-fa fa-ban red",
-          handler: "onRemoveClick",
-        },
-        {
-          iconCls: "fa fa-copy",
-          handler: "onCloneClick",
-        },
-      ],
-    },
   ],
+
+  listeners: {
+    click: "onSelectionChange",
+
+  },
+
+
+
 });
