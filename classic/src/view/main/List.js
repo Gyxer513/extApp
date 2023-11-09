@@ -15,35 +15,40 @@ Ext.define("ipgQualificationTask.view.main.List", {
     type: "cellmodel",
   },
 
-  tbar: [
-    {
+  // Объявляем кнопки-экшены
+  allowDeselect: true,
+  defaultActionType: "button",
+  actions: {
+    add: {
       text: "Добавить строку",
-      handler: "onAddClick",
+      disabled: false,
+      handler: "handleAddAction",
     },
-    {
+    delete: {
       text: "Удалить строку",
-      handler: "onRemoveClick",
-      reference: 'removeEmployee',
-      handler: '',
-      disabled: true
+      disabled: true,
+      handler: "handleDeleteAction",
     },
-    {
+    clone: {
+      iconCls: "array-grid-sell-col",
       text: "Клонировать строку",
-      handler: "onCloneClick",
-      reference: 'removeEmployee',
-      handler: 'onRemoveClick',
-      disabled: true
+      disabled: true,
+      handler: "handleCloneAction",
     },
-  ],
+  },
+
+  tbar: ["@add", "@delete", "@clone"],
 
   store: {
     type: "personnel",
   },
+
   plugins: {
     cellediting: {
       clicksToEdit: 2,
     },
   },
+
   columns: [
     {
       text: "Name",
@@ -101,10 +106,9 @@ Ext.define("ipgQualificationTask.view.main.List", {
   ],
 
   listeners: {
-    click: "onSelectionChange",
-
+    // Слушатель на выделение ячейки
+    selectionchange: "onSelectionChange",
+    // Слушатель хранилище
+    save: "saveToLocalStorage",
   },
-
-
-
 });
