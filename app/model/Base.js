@@ -1,7 +1,7 @@
-Ext.define('ipgQualificationTask.model.Base', {
-    extend: 'Ext.data.Model',
+Ext.define("ipgQualificationTask.model.Base", {
+  extend: "Ext.data.Model",
 
-    schema: {
-        namespace: 'ipgQualificationTask.model'
-    }
+  schema: {
+    namespace: "ipgQualificationTask.model",
+  },
 });
